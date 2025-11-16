@@ -1,0 +1,13 @@
+article {
+  margin-bottom: 2rem;
+
+  a {
+    color: $accent-color;
+    text-decoration: underline;
+    @include transition(color);
+
+    &:hover {
+      color: lighten($accent-color, 20%);
+    }
+  }
+}
