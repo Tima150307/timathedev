@@ -1,0 +1,83 @@
+.PHONY: setup
+
+setup:
+	# Root project folder
+	mkdir -p timathedev.de
+
+	# Go into project
+	cd timathedev.de && \
+
+	# ─────────────────────────────────────────────
+	# Create all directories
+	# ─────────────────────────────────────────────
+	mkdir -p \
+		.git \
+		src/assets/fonts \
+		src/assets/icons \
+		src/assets/img \
+		src/assets/videos \
+		src/scss/base \
+		src/scss/components \
+		src/js \
+		src/pages \
+		src/partials \
+		src/partials/components \
+		dist/css \
+		dist/js && \
+
+	# ─────────────────────────────────────────────
+	# Create root files
+	# ─────────────────────────────────────────────
+	touch .gitignore README.md package.json tailwind.config.js postcss.config.js vite.config.js && \
+
+	# ─────────────────────────────────────────────
+	# SCSS base files
+	# ─────────────────────────────────────────────
+	touch src/scss/base/_variables.scss && \
+	touch src/scss/base/_mixins.scss && \
+	touch src/scss/base/_reset.scss && \
+	touch src/scss/base/_typography.scss && \
+
+	# SCSS components
+	touch src/scss/components/_navbar.scss && \
+	touch src/scss/components/_cards.scss && \
+	touch src/scss/components/_buttons.scss && \
+	touch src/scss/components/_animations.scss && \
+
+	# Main SCSS entry
+	touch src/scss/main.scss && \
+
+	# ─────────────────────────────────────────────
+	# JS files
+	# ─────────────────────────────────────────────
+	touch src/js/main.js && \
+	touch src/js/aos-init.js && \
+	touch src/js/gsap-animations.js && \
+	touch src/js/ui.js && \
+
+	# ─────────────────────────────────────────────
+	# HTML pages
+	# ─────────────────────────────────────────────
+	touch src/pages/index.html && \
+	touch src/pages/about.html && \
+	touch src/pages/projects.html && \
+	touch src/pages/arcade.html && \
+	touch src/pages/contact.html && \
+
+	# ─────────────────────────────────────────────
+	# Partials
+	# ─────────────────────────────────────────────
+	touch src/partials/header.html && \
+	touch src/partials/footer.html && \
+
+	# Partial components
+	touch src/partials/components/dropdown.html && \
+	touch src/partials/components/hero-section.html && \
+	touch src/partials/components/project-card.html && \
+	touch src/partials/components/arcade-card.html && \
+
+	# ─────────────────────────────────────────────
+	# dist output placeholders
+	# ─────────────────────────────────────────────
+	touch dist/css/styles.css && \
+	touch dist/js/main.bundle.js
