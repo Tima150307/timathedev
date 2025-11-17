@@ -7,7 +7,7 @@ const __dirname = resolve(fileURLToPath(import.meta.url), '..');
 
 export default defineConfig({
     build: {
-        outDir: "dist",
+        outDir: "docs",
         emptyOutDir: true,
         rollupOptions: {
             input: {
