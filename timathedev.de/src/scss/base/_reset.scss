@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -8,5 +10,13 @@ body {
   font-family: $font-base;
   line-height: 1.6;
   color: $text-color;
-  background-color: $primary-bg;
+  background-color: $bg-primary;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-headline;
+  color: $accent-neon;
+  text-shadow: 0 0 5px $accent-neon;
+  margin-bottom: 1rem;
 }

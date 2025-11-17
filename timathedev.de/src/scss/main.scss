@@ -1,8 +1,14 @@
-@import 'base/variables';
-@import 'base/mixins';
-@import 'base/reset';
-@import 'base/typography';
-@import 'components/navbar';
-@import 'components/sections';
-@import 'components/projects';
-@import 'components/footer';
+// 1. Module importieren (modern)
+@use 'sass:color';
+@use 'base/variables' as *;
+@use 'base/mixins' as *;
+@use 'base/reset';
+@use 'base/typography';
+
+// 2. Komponenten importieren (modern)
+@use 'components/navbar';
+@use 'components/cards';
+@use 'components/projects';
+@use 'components/sections';
+@use 'components/footer';
+@use 'components/animations';

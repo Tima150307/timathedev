@@ -1,13 +1,28 @@
-article {
-  margin-bottom: 2rem;
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use 'sass:color';
 
+article {
+  background-color: rgba($accent-neon, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid $accent-neon;
+  @include transition(transform, box-shadow);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba($accent-neon, 0.5);
+  }
+
+  // Links *innerhalb* eines <article>
   a {
-    color: $accent-color;
+    color: $accent-neon;
     text-decoration: underline;
+    font-weight: 700;
     @include transition(color);
 
     &:hover {
-      color: lighten($accent-color, 20%);
+      color: color.adjust($accent-hover, $lightness: 20%);
     }
   }
 }
