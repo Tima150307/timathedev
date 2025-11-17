@@ -1,12 +1,13 @@
-// Farben
-$primary-bg: #111;
-$secondary-bg: #1a1a1a;
-$text-color: #fff;
-$accent-color: #0ff;
-$link-hover: #f0f;
+// == FARBEN (NEON VIBE) ==
+$bg-primary: #0a0a0f; // Fast schwarz-blau
+$bg-secondary: #1a1a2e; // Dunkel-Lila/Blau
+$text-color: #e0e0e0; // Helles Grau
+$accent-neon: #00fff7; // Neon-Cyan
+$accent-hover: #ff00c8; // Neon-Magenta
 
-// Fonts
-$font-base: 'Arial', sans-serif;
+// == FONTS (TECH VIBE) ==
+$font-headline: 'Orbitron', sans-serif;
+$font-base: 'Rajdhani', sans-serif;
 
-// Spacing
+// == SPACING ==
 $section-padding: 4rem 2rem;

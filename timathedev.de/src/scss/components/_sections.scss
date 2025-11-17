@@ -1,8 +1,9 @@
+@use '../base/variables' as *;
+
 section {
   padding: $section-padding;
-  min-height: 80vh;
 
-  &:nth-child(even) {
-    background-color: $secondary-bg;
+  &:nth-of-type(odd) {
+    background-color: $bg-secondary;
   }
 }

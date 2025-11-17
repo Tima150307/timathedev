@@ -1,7 +1,12 @@
+@use '../base/variables' as *;
+@use 'sass:color';
+
 footer {
-  background-color: darken($primary-bg, 5%);
+  background-color: color.adjust($bg-primary, $lightness: -5%);
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #888;
+  border-top: 1px solid rgba($accent-neon, 0.2);
+  margin-top: 4rem; // Platz nach oben
 }

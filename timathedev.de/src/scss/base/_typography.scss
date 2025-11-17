@@ -1,11 +1,21 @@
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-}
+@use 'variables' as *;
 
-p {
+p, li {
+  font-size: 1.1rem;
+  color: $text-color;
   margin-bottom: 1rem;
 }
 
-ul {
-  list-style: disc inside;
+li {
+  list-style-position: inside;
+}
+
+a {
+  color: $accent-neon;
+  text-decoration: underline;
+  font-weight: 700;
+
+  &:hover {
+    color: $accent-hover;
+  }
 }

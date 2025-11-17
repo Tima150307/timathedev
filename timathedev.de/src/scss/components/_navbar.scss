@@ -1,21 +1,43 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
 header {
-  background-color: darken($primary-bg, 5%);
-  padding: 1rem 2rem;
   position: sticky;
   top: 0;
+  width: 100%;
   z-index: 1000;
+
+  background-color: rgba($bg-primary, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $accent-neon;
+  box-shadow: 0 2px 10px rgba($accent-neon, 0.3);
+  padding: 1rem 2rem;
 
   nav ul {
     display: flex;
+    justify-content: flex-end; // Links nach rechts
     gap: 2rem;
+    list-style: none;
+    margin: 0; // Reset für <ul>
+    padding: 0; // Reset für <ul>
 
     a {
+      font-family: $font-headline;
       color: $text-color;
       text-decoration: none;
-      @include transition(color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      @include transition(color, text-shadow);
 
       &:hover {
-        color: $accent-color;
+        color: $accent-hover; // Magenta-Hover
+        text-shadow: 0 0 10px $accent-hover;
+      }
+
+      &.active {
+        color: $accent-neon;
+        text-shadow: 0 0 10px $accent-neon;
       }
     }
   }
