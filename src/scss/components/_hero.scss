@@ -1,0 +1,99 @@
+// src/scss/components/_hero.scss
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr; // 2/3 Platz für Text, 1/3 für Bild
+  align-items: center;
+  min-height: 90vh; // Fast ganzer Bildschirm
+  gap: 2rem;
+
+  // Responsive für Handy
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // Alles untereinander
+    text-align: center;
+  }
+
+  .hero-content {
+    h1 {
+      font-size: 4.5rem; // Riesig
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: $text-color; // Normal weiß
+      text-shadow: none; // Keinen Standard-Glow
+
+      .highlight-cyan {
+        color: $accent-neon; // Neon-Cyan
+        text-shadow: 0 0 10px $accent-neon;
+      }
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      font-family: $font-headline;
+      color: $text-color;
+      margin-bottom: 2rem;
+
+      // Der blinkende Cursor für den Typing-Effekt
+      #typing-text::after {
+        content: '_';
+        font-weight: 700;
+        color: $accent-neon;
+        animation: blink 1s infinite step-end;
+      }
+    }
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      justify-content: center; // Buttons zentrieren auf Handy
+    }
+  }
+
+  // Die Button-Styles
+  .btn {
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    font-family: $font-headline;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    @include transition(all);
+    border: 2px solid transparent;
+
+    &.btn-primary {
+      background-color: $accent-neon;
+      color: $bg-primary;
+      border-color: $accent-neon;
+      box-shadow: 0 0 15px rgba($accent-neon, 0.5);
+
+      &:hover {
+        background-color: $accent-hover;
+        border-color: $accent-hover;
+        box-shadow: 0 0 25px rgba($accent-hover, 0.7);
+        transform: translateY(-3px);
+      }
+    }
+
+    &.btn-secondary {
+      background-color: transparent;
+      color: $text-color;
+      border-color: $text-color;
+
+      &:hover {
+        background-color: $text-color;
+        color: $bg-primary;
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

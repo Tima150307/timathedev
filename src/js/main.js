@@ -1,49 +1,58 @@
+import Typewriter from 'typewriter-effect/dist/core';
+
 // Wartet, bis die HTML-Seite geladen ist
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Funktion, um HTML-Komponenten zu laden
-    const loadComponent = (id, url) => {
-        fetch(url)
-            .then((response) => response.text())
-            .then((data) => {
-                // Findet das Element und füllt es mit dem HTML
-                const element = document.getElementById(id);
-                if (element) {
-                    element.innerHTML = data;
-                }
-            })
-            .then(() => {
-                // Nach dem Laden des Headers, führen wir das Active-Skript aus
-                if (id === 'header-placeholder') {
-                    setActiveNavLink();
-                }
-            })
-            .catch((error) => console.error(`Error loading component ${url}:`, error));
-    };
+    // --- 1. Funktion, um den aktiven Nav-Link zu setzen ---
+    const currentPage = window.location.pathname.split('/').pop(); // Holt z.B. "about.html"
+    const navLinks = document.querySelectorAll("header nav a");
 
-    // Funktion, um den aktiven Nav-Link zu setzen
-    const setActiveNavLink = () => {
-        const currentPage = window.location.pathname;
-        const navLinks = document.querySelectorAll("header nav a");
+    navLinks.forEach((link) => {
+        const linkHref = link.getAttribute("href").split('#')[0]; // Holt z.B. "about.html"
 
-        navLinks.forEach((link) => {
-            const linkHref = link.getAttribute("href");
+        if (currentPage === linkHref || (currentPage === '' && linkHref === 'index.html')) {
+            link.classList.add("active");
+        }
+    });
 
-            // Genaue Prüfung für die Startseite
-            if (currentPage === '/' || currentPage === '/index.html') {
-                if (linkHref === '/') {
-                    link.classList.add("active");
-                }
-            }
-            // Prüfung für alle anderen Seiten
-            else if (linkHref !== "/" && currentPage.includes(linkHref)) {
-                link.classList.add("active");
+
+    // --- 2. Typing-Effekt ---
+    const typingElement = document.getElementById('typing-text');
+
+    if (typingElement) {
+        new Typewriter(typingElement, {
+            strings: [
+                'Auszubildender.',
+                'Web-Entwickler.',
+                'Problemlöser.',
+                'Techjunky.'
+            ],
+            autoStart: true,
+            loop: true,
+            delay: 75,
+        });
+    }
+
+
+    // --- 3. 2-Klick-Lösung für itch.io Games ---
+    document.querySelectorAll('.load-game-btn').forEach(button => {
+
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const placeholder = button.closest('.itch-embed-placeholder');
+            const iframeSrc = placeholder.getAttribute('data-src');
+
+            if (iframeSrc) {
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('src', iframeSrc);
+                iframe.setAttribute('width', '100%');
+                iframe.setAttribute('height', '480');
+
+                placeholder.parentNode.replaceChild(iframe, placeholder);
             }
         });
-    };
-
-    // Lade Header und Footer in die Platzhalter
-    loadComponent("header-placeholder", "/components/header.html");
-    loadComponent("footer-placeholder", "/components/footer.html");
+    });
 
 });
