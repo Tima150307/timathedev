@@ -5,8 +5,32 @@ footer {
   background-color: color.adjust($bg-primary, $lightness: -5%);
   text-align: center;
   padding: 2rem;
-  font-size: 0.9rem;
-  color: #888;
-  border-top: 1px solid rgba($accent-neon, 0.2);
-  margin-top: 4rem; // Platz nach oben
+  border-top: 1px solid rgba($accent-neon, 0.2); // Dezente Neon-Linie oben
+  margin-top: 4rem; // Abstand zum Inhalt
+
+  .footer-links {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center; // Zentriert die Links
+    gap: 1.5rem; // Abstand zwischen den Links
+
+    a {
+      font-family: $font-base; // Deine Rajdhani-Schrift
+      color: #888; // Dezentes Grau
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $accent-neon; // Neon-Cyan beim Hover
+        text-decoration: underline;
+        text-shadow: 0 0 5px $accent-neon;
+      }
+    }
+  }
+
+  small {
+    color: #666; // Noch dezenteres Grau
+    font-size: 0.8rem;
+  }
 }
